@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 
 const mongoose = require("mongoose");
@@ -118,9 +120,7 @@ app.put("/donors/:id", async (req, res) => {
 
 
 // MONGODB CONNECTION
-mongoose.connect(
-   "mongodb+srv://Abhinand:Abhinand2005@cluster0.inzfoyq.mongodb.net/bloodDonationDB?retryWrites=true&w=majority&appName=Cluster0"
-)
+mongoose.connect(process.env.MONGO_URI)
 .then(() => {
 
    console.log("MongoDB Connected");
